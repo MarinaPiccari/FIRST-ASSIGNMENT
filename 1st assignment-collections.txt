@@ -1,0 +1,141 @@
+COLLECTIONS
+
+1)COUNT
+n = int(input())
+l = list(map(int, input().split()))
+c = int(input())
+C = []
+E = 0
+for p in range(c):
+    x = list(map(int, input().split()))
+    C.append(x)
+for a in C:
+    if a[0] in l:
+        E += a[1]
+        l.remove(a[0])
+    else:
+        E += 0
+print (E)
+
+
+2)NAMEDTUPLE
+n = int(input())
+c = list(input().split())
+L = []
+A = 0
+for x in range(n):
+    d = list(input().split())
+    L.append(d)
+i = c.index("MARKS")
+for y in L:
+    A += int(y[i])
+A = A/n
+print ('{:.2f}'.format(A))
+
+
+3)DEQUE
+from collections import deque
+N = int(input())
+d = deque()
+for _ in range(N):
+    s = input().split()
+    method = s[0]
+    value = s[1] if len(s) > 1 else []
+    if method == 'append':
+        d.append(value)
+    elif method == 'appendleft':
+        d.appendleft(value)
+    elif method == 'pop':
+        d.pop()
+    elif method == 'popleft':
+        d.popleft()
+print (*d)
+
+
+4)DEFAULT DICT
+from collections import defaultdict
+n,m = map(int,input().split())
+d = defaultdict(list)
+for x in range(1, n+1):
+    d[input()].append(str(x))
+for y in range(m):
+    print (" ".join(d[input()]) or -1)
+
+
+5)ORDERED DICT
+from collections import OrderedDict
+orddict = OrderedDict()
+N = int(input())
+for i in range(N):
+    product = input().split()
+    name = " ".join(product[:-1])
+    price = int(product[-1])
+    if name not in orddict:
+        orddict[name] = price
+    else:
+        orddict[name] += price
+for name, price in orddict.items():
+    print (name, price)
+
+
+6)WORD ORDER
+from collections import OrderedDict
+d = OrderedDict()
+n = int(input())
+for i in range (n):
+    word = str(input())
+    if word not in d:
+        d[word] = 1
+    else:
+        d[word] += 1
+print (len(d))
+print (*d.values())
+
+
+7)MOST COMMONS
+import math
+import os
+import random
+import re
+import sys
+
+if __name__ == '__main__':
+    s = input()
+
+from collections import OrderedDict
+d = OrderedDict()
+S = sorted(str(s))
+L = []
+for x in S:
+    if x not in L:
+        L.append(x)
+for l in L:
+    d[l] = S.count(l)
+for letter, abund in (sorted(d.items(), key = lambda x: x[1], reverse = True))[:3]:
+    print (letter, abund)
+
+
+8)PILLING UP
+T = int(input())
+for x in range(T):
+    n = int(input())
+    L = list(map(int, input().split()))
+    if L[0] >= L[-1]:
+        lastone = L[0]     
+        L.pop(0)
+    elif L[0] < L[-1]:
+        lastone = L[-1]
+        L.pop()
+    for y in range(0, len(L)):
+        if L[0] >= L[-1] and L[0]<=lastone:
+            lastone = L[0]
+            L.pop(0)
+        elif L[0] < L[-1] and L[-1]<=lastone:
+            lastone = L[-1]         
+            L.pop()
+        else:
+            None
+    if len(L) == 0:
+        print ('Yes')                  
+    else:       
+        print ('No')

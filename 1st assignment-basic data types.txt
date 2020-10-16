@@ -1,0 +1,105 @@
+BASIC DATA TYPES
+
+1)LIST COMPREHENSIONS
+if __name__ == '__main__':
+    x = int(raw_input())
+    y = int(raw_input())
+    z = int(raw_input())
+    n = int(raw_input())
+    L = []
+    M = []
+    for X in range(x+1):
+        for Y in range(y+1):
+            for Z in range(z+1):
+                L.append([X,Y,Z])
+    for lst in L:
+        if lst[0]+lst[1]+lst[2] != n:
+            M.append(lst)
+    print M
+
+
+
+2)RUNNER-UP SCORE
+if __name__ == '__main__':
+    n = int(raw_input())
+    arr = map(int, raw_input().split())
+    L = list(arr)
+    L.sort(reverse = True)
+    m = L[0]
+    S = []
+    for x in L:
+        if x != m:
+            S.append(x)
+    print max(S)
+
+
+
+3)PERCENTAGES
+if __name__ == '__main__':
+    n = int(input())
+    student_marks = {}
+    for _ in range(n):
+        name, *line = input().split()
+        scores = list(map(float, line))
+        student_marks[name] = scores
+    query_name = input()
+    T = 0.00
+    if query_name in student_marks:
+        marks = student_marks[query_name]
+        for x in marks:
+            T = T + x
+            T = T / 1.00
+            average = T / len(scores)
+        print ('{:.2f}'.format(average))
+
+
+4)TUPLE
+if __name__ == '__main__':
+    n = int(input())
+    integer_list = map(int, input().split())
+    T = tuple(integer_list)
+    print (hash(T))
+
+
+5)LISTS
+if __name__ == '__main__':
+    N = int(input())
+    L = []
+    for _ in range(N):
+        s = input().split()
+        comand = s[0]
+        data = s[1:]
+        if comand == 'insert':
+            L.insert(int(data[0]), int(data[1]))
+        elif comand == 'remove':
+            L.remove(int(data[0]))
+        elif comand == 'append':
+            L.append(int(data[0]))
+        elif comand == 'print':
+            print (L)
+        elif comand == 'sort':
+            L.sort()
+        elif comand == 'pop':
+            L.pop()
+        elif comand == 'reverse':
+            L.reverse()
+
+
+6)NESTED LIST
+L = []
+if __name__ == '__main__':
+    for _ in range(int(input())):
+        name = input()
+        score = float(input())
+        L.append([score, name])
+    L.sort()
+    min = L[0][0]
+    M = []
+    for x in L:
+        if x[0] > min:
+            M.append(x)
+    s = M[0][0]
+    N = sorted(M, key = lambda x: x[1])
+    for y in N:
+        if y[0] == s:
+            print (y[1])

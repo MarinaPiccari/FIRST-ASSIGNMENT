@@ -1,0 +1,56 @@
+INTERTOOLS
+
+1)PRODUCT
+from itertools import product
+A, B = (list(map(int, input().split()) for i in range(2)))
+AxB = product(A,B)
+L = tuple(list(AxB))
+for x in L:
+    print (x, end = " ")
+
+
+2)PERMUTATIONS
+from itertools import permutations
+S = input().split()
+W = list(S[0])
+k = int(S[1])
+L = sorted(list(permutations(W,k)))
+for x in L:
+    print ("".join(x))
+
+
+3)COMBINATIONS
+from itertools import combinations
+S, k = input().split()
+for i in range(1, int(k)+1):
+    for j in combinations(sorted(S), i):
+        print ("".join(j))
+
+
+4)COMBINATIONS WITH REPLACEMENT
+from itertools import combinations_with_replacement
+S, k = input().split()
+for x in combinations_with_replacement(sorted(S), int(k)):
+        print ("".join(x))
+
+
+5)ITERABLES & ITERATORS
+from itertools import combinations
+N = int(input())
+S = input().split()
+K = int(input())
+L = list(combinations(S, K))
+P = 0
+for l in L:
+    if 'a' in l:
+        P += 1
+print (round(P/len(L), 3))
+
+
+6)COMPRESS THE STRING
+from itertools import groupby
+s = input()
+L = []
+for x, y in groupby(s):
+    L.append(tuple([len(list(y)), int(x)]))
+print (*L)

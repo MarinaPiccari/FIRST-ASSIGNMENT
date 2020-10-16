@@ -1,0 +1,141 @@
+STRINGS
+
+1)SWAP CASES
+def swap_case(s):
+    S = ''
+    for x in s:
+        if x.isalpha():
+            if x.islower():
+                S += x.upper()
+            else:
+                S += x.lower()
+        else:
+            S += x
+    return S
+
+if __name__ == '__main__':
+    s = input()
+    result = swap_case(s)
+    print(result)
+
+
+2)WHAT'S YOUR NAME
+def print_full_name(a, b):
+    print (f"Hello {a} {b}! You just delved into python." )
+
+
+if __name__ == '__main__':
+    first_name = input()
+    last_name = input()
+    print_full_name(first_name, last_name)
+
+
+3)TEXT WRAP
+import textwrap
+
+def wrap(string, max_width):
+    return textwrap.fill(string, max_width)
+    
+
+if __name__ == '__main__':
+    string, max_width = input(), int(input())
+    result = wrap(string, max_width)
+    print(result)
+
+
+4)DOOR MAT
+N, M = map(int,input().split())
+for i in range(1, N, 2):
+    print ((i*".|.").center(M,"-"))
+print (("WELCOME").center(M, "-"))
+for j in range(N-2, -1, -2):
+    print ((j*".|.").center(M,"-"))
+
+
+5)SPLIT&JOIN
+def split_and_join(line):
+    list = line.split(' ')
+    string = '-'.join(list)
+    return string
+
+if __name__ == '__main__':
+    line = raw_input()
+    result = split_and_join(line)
+    print result
+
+
+6)MUTATIONS
+def mutate_string(string, position, character):
+    S = list(s)
+    S[int(i)] = c
+    word = ''.join(S)
+    return word
+
+if __name__ == '__main__':
+    s = input()
+    i, c = input().split()
+    s_new = mutate_string(s, int(i), c)
+    print(s_new)
+
+
+7)ALLIGNMENT
+thickness = int(input()) #This must be an odd number
+c = 'H'
+
+#Top Cone
+for i in range(thickness):
+    print((c*i).rjust(thickness-1)+c+(c*i).ljust(thickness-1))
+
+#Top Pillars
+for i in range(thickness+1):
+    print((c*thickness).center(thickness*2)+(c*thickness).center(thickness*6))
+
+#Middle Belt
+for i in range((thickness+1)//2):
+    print((c*thickness*5).center(thickness*6))    
+
+#Bottom Pillars
+for i in range(thickness+1):
+    print((c*thickness).center(thickness*2)+(c*thickness).center(thickness*6))    
+
+#Bottom Cone
+for i in range(thickness):
+    print(((c*(thickness-i-1)).rjust(thickness)+c+(c*(thickness-i-1)).ljust(thickness)).rjust(thickness*6))
+
+
+8)FIND A STRING
+def count_substring(string, sub_string):
+    count = 0
+    n = len(sub_string)
+    for i in range(len(string)):
+        if string[i:i+n] == sub_string:
+            count += 1
+    return count
+
+if __name__ == '__main__':
+    string = input().strip()
+    sub_string = input().strip()
+    
+    count = count_substring(string, sub_string)
+    print(count)
+
+
+9)STRING VALIDATORS
+if __name__ == '__main__':
+    s = input()
+    print (any(x.isalnum() for x in s))
+    print (any(x.isalpha() for x in s))
+    print (any(x.isdigit() for x in s))
+    print (any(x.islower() for x in s))
+    print (any(x.isupper() for x in s))
+
+
+10)FORMATTING
+def print_formatted(number):
+    for l in range(1, n+1):
+        print (str(l).rjust(len(bin(n).replace('0b', '')), ' '), oct(l).replace('0o','',1).rjust(len(bin(n).replace('0b','')), ' '), hex(l).replace('0x','').upper().rjust(len(bin(n).replace('0b','')), ' '), bin(l).replace('0b','').rjust(len(bin(n).replace('0b','')), ' '))
+
+
+if __name__ == '__main__':
+    n = int(input())
+    print_formatted(n)

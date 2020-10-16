@@ -1,0 +1,45 @@
+MATH
+
+1)INTEGERS OF ALL SIZES
+x,y,z,w = (int(input()) for i in range(4))
+print ((x**y) + (z**w))
+
+
+2)POWER
+a, b, m = (int(input()) for i in range(3))
+print a**b
+print pow(a,b,m)
+
+
+3)DIVISION
+a, b = (int(input()) for i in range(2))
+print (int(a/b))
+print (a%b)
+new_tuple = ((int(a/b)), (a%b))
+print (new_tuple)
+
+
+4)POLAR COORDINATES
+import cmath
+C = cmath.polar(complex(input()))
+print (C[0])
+print (C[1])
+
+
+5)TRIANGLE 1
+for i in range(1,int(input())):
+	print (((10**i)//9)*i)
+
+
+6)TRIANGLE 2
+for i in range(1,int(input())+1):
+    print ((10**(i)//9)**2)
+
+
+7)FIND THE ANGLE
+import math
+AB, BC = (int(input()) for i in range(2))
+CA = math.sqrt((AB**2)+(BC**2))
+a = round(math.degrees(math.acos(BC/CA)))
+b = chr(176)
+print (a, b, sep = '')

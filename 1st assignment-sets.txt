@@ -1,0 +1,180 @@
+SETS
+
+1)INTRODUCTION
+def average(array):
+    S = set(arr)
+    tot = 0.00
+    for x in S:
+        tot += x
+    av = tot/len(S)
+    return av
+
+if __name__ == '__main__':
+    n = int(input())
+    arr = list(map(int, input().split()))
+    result = average(arr)
+    print(result)
+
+
+2)ADD
+n = int(input())
+S = set([])
+for x in range(n):
+    name = input()
+    S.add(name)
+print (len(S))
+
+
+3)SYMM.DIFFERENCE
+M = int(input())
+m = list(map(int, input().split()))
+N = int(input())
+n = list(map(int, input().split()))
+S = set(m)
+T = set(n)
+x = S.difference(T)
+y = T.difference(S)
+a = sorted(x.union(y))
+for b in a:
+    print (b)
+
+
+4)DISCARD/REMOVE/POP
+n = int(input())
+s = set(map(int, input().split()))
+N = int(input())
+for x in range(N):
+    S =list(input().split())
+    if S[0] == 'pop':
+        s.pop()
+    elif S[0] == 'remove':
+        s.remove(int(S[1]))
+    elif S[0] == 'discard':
+        s.discard(int(S[1]))
+TOT = 0
+for a in s:
+    TOT += a
+print (TOT)
+
+
+5)UNION
+n = int(input())
+s = set((input().split()))
+N = int(input())
+S = set((input().split()))
+newset = set()
+for x in s:
+    newset.add(x)
+    for y in S:
+        newset.add(y)
+print (len(newset))
+
+
+6)INTERSECTION
+n = int(input())
+s = set((input().split()))
+N = int(input())
+S = set((input().split()))
+newset = s.intersection(S)
+print (len(newset))
+
+
+7)DIFFERENCE
+n = int(input())
+s = set((input().split()))
+N = int(input())
+S = set((input().split()))
+b = s.intersection(S)
+newset = s.difference(b)
+print (len(newset))
+
+
+8)SYMMETRIC DIFFERENCE
+n = int(input())
+s = set((input().split()))
+N = int(input())
+S = set((input().split()))
+b = s.intersection(S)
+newset1 = s.difference(b)
+newset2 = S.difference(b)
+newset = newset1 | newset2
+print (len(newset))
+
+
+9)SUBSET
+T = int(input())
+for i in range(1,T+1):
+    A = int(input())
+    a = set((input().split()))
+    B = int(input())
+    b = set((input().split()))
+    x = a.intersection(b)
+    if a == a.intersection(b):
+        print (True)
+    else: 
+        print (False)
+
+
+10)MUTATIONS
+A = int(input())
+a = set((input().split()))
+N = int(input())
+for i in range(N, N*2):
+    X = list(input().split())
+    x = set((input().split()))
+    if X[0] == 'intersection_update':
+        a.intersection_update(x)
+    elif X[0] == 'update':
+        a.update(x)
+    elif X[0] == 'symmetric_difference_update':
+        a.symmetric_difference_update(x)
+    elif X[0] == 'difference_update':
+        a.difference_update(x)
+S = 0
+for dig in a:
+    S += int(dig)
+print (S)
+
+
+11)CAPTAIN'S ROOM
+K = int(input())
+r = input().split()
+x = set()
+y = set()
+for i in r:
+    if i in x:
+        y.add(i)
+    else:
+        x.add(i)
+for j in x.difference(y):
+    print (j)
+
+
+12)STRICT SUPERSET
+A = set(input().split())
+N = int(input())
+L = []
+for i in range(2, N+2):
+    S = set((input().split()))
+    if A.intersection(S) != S:
+        L.append(False)
+    else:
+        L.append(True)
+if False not in L:
+    print (True)
+else:
+    print (False)
+
+
+13)NO IDEA PROBLEM
+n, m = map(int, input().split())
+H = 0
+arr = list(input().split())
+A = set(input().split())
+B = set(input().split())
+for x in arr:
+    if x in A:
+        H += 1
+    elif x in B:
+        H += -1
+print (H)
